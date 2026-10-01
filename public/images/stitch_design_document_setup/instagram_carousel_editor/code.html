@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "on-error-container": "#93000a",
+          "secondary-fixed": "#dbe1ff",
+          "on-secondary-fixed-variant": "#003ea8",
+          "outline-variant": "#c5c6cd",
+          "surface-container-high": "#e2e7ff",
+          "on-primary-fixed": "#111c2d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "primary-fixed-dim": "#bcc7de",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#6ffbbe",
+          "on-error": "#ffffff",
+          "on-surface": "#131b2e",
+          "secondary": "#0051d5",
+          "surface-variant": "#dae2fd",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-surface-variant": "#45474c",
+          "outline": "#75777d",
+          "tertiary-fixed-dim": "#4edea3",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-highest": "#dae2fd",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-dim": "#d2d9f4",
+          "on-secondary-fixed": "#00174b",
+          "tertiary": "#00190e",
+          "surface-container-low": "#f2f3ff",
+          "surface-bright": "#faf8ff",
+          "background": "#faf8ff",
+          "primary": "#091426",
+          "secondary-fixed-dim": "#b4c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "error": "#ba1a1a",
+          "inverse-primary": "#bcc7de",
+          "primary-container": "#1e293b",
+          "inverse-surface": "#283044",
+          "tertiary-container": "#00301e",
+          "on-background": "#131b2e",
+          "secondary-container": "#316bf3",
+          "on-primary-container": "#8590a6",
+          "on-tertiary-container": "#00a472",
+          "on-secondary-container": "#fefcff",
+          "surface-tint": "#545f73",
+          "primary-fixed": "#d8e3fb",
+          "on-primary-fixed-variant": "#3c475a",
+          "on-tertiary-fixed": "#002113"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-sm": "0.5rem",
+          "gutter": "1.5rem",
+          "gutter-mobile": "0.75rem",
+          "space-xl": "2.5rem",
+          "margin-mobile": "1rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem"
+        },
+        "fontFamily": {
+          "display-hero-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "caption-code": ["Inter"],
+          "display-hero": ["Inter"],
+          "headline-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"]
+        },
+        "fontSize": {
+          "display-hero-mobile": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "body-lg": ["1rem", {"lineHeight": "1.625rem", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+          "headline-sm": ["1.125rem", {"lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+          "caption-code": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "display-hero": ["2.25rem", {"lineHeight": "2.75rem", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+          "headline-md": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "body-sm": ["0.8125rem", {"lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-md": ["0.875rem", {"lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "label-md": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "500"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md px-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PostCraft</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span>홈</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-on-surface font-headline-sm" data-path="my-content" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>내 콘텐츠</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="new-content" href="#"><span class="material-symbols-outlined text-[20px]">add_box</span><span>새 콘텐츠</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>설정</span></a></nav></div><div class="flex flex-col gap-space-md pt-space-md bg-surface-container-lowest"><div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><span>AI 생성 한도</span><span class="font-caption-code text-caption-code text-secondary">12 / 50건</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full" style="width: 24%"></div></div><p class="font-caption-code text-caption-code text-on-surface-variant">오늘 12건 생성 완료</p></div><div class="flex items-center gap-space-sm px-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface truncate">김창작</span><span class="font-caption-code text-caption-code text-on-surface-variant truncate">creator@postcraft.ai</span></div><button class="text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">PostCraft AI</span><span class="text-outline-variant">/</span><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span>소셜 콘텐츠 스튜디오</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="font-label-sm text-label-sm text-on-surface-variant">1초 전 동기화 완료</span></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-sm text-label-sm" type="button"><span class="material-symbols-outlined text-[16px]">photo_library</span><span>Unsplash</span></button><button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">help_outline</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface px-space-lg min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Workspace Toolbar -->
+<section class="flex flex-wrap items-center justify-between gap-space-md py-space-sm bg-surface mb-space-md">
+<div class="flex flex-col gap-1">
+<div class="flex items-center gap-2 text-on-surface-variant font-caption-code text-caption-code">
+<span class="hover:text-primary transition-colors cursor-pointer">내 프로젝트</span>
+<span>/</span>
+<span class="text-on-surface font-semibold">제주 애월 여행</span>
+<span>/</span>
+<span class="text-secondary font-semibold">Instagram Carousel 카드뉴스</span>
+</div>
+<div class="flex items-center gap-3">
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">애월 노을 여행 가이드</h1>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-[11px] font-semibold bg-surface-container text-on-surface-variant">
+          총 5개 슬라이드 · <span class="ml-1 text-primary" id="current-aspect-label">1:1 피드 정방형</span>
+</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-caption-code text-on-tertiary-container bg-surface-container-high px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[14px]">cloud_done</span> 실시간 저장됨
+        </span>
+</div>
+</div>
+<!-- Right Controls -->
+<div class="flex items-center gap-space-sm">
+<!-- Aspect Ratio Switcher -->
+<div class="flex items-center bg-surface-container-low p-1 rounded-lg">
+<button class="px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all" id="btn-ratio-1-1" type="button">
+          1:1 정사각형
+        </button>
+<button class="px-3 py-1.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all" id="btn-ratio-4-5" type="button">
+          4:5 세로형 (권장)
+        </button>
+</div>
+<button class="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">sync_alt</span>
+<span>Instagram 캡션 연동</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md shadow-sm transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">file_download</span>
+<span>ZIP 전체 내보내기</span>
+</button>
+</div>
+</section>
+<!-- 3-Column Visual Studio Architecture -->
+<div class="grid grid-cols-12 gap-space-md items-start">
+<!-- LEFT: Slide Thumbnail Track (2.5 Cols) -->
+<aside class="col-span-12 xl:col-span-3 lg:col-span-4 flex flex-col gap-space-sm">
+<div class="flex items-center justify-between px-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">view_carousel</span>
+<span class="font-headline-sm text-headline-sm text-primary font-semibold">슬라이드 순서</span>
+</div>
+<span class="font-caption-code text-caption-code text-on-surface-variant">드래그하여 순서 변경</span>
+</div>
+<!-- Thumbnails Stack -->
+<div class="flex flex-col gap-space-xs max-h-[760px] overflow-y-auto pr-1">
+<!-- Slide 1 (Active) -->
+<div class="group relative flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest shadow-sm ring-2 ring-secondary cursor-pointer transition-all">
+<span class="material-symbols-outlined text-outline-variant text-[18px] cursor-grab group-hover:text-primary">drag_indicator</span>
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="A cinematic, golden hour sunset over Aewol rocky coast in Jeju Island with gentle ocean waves, warm amber skies, minimalist photography, high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWrOf6WgMaVPgzr-wLWO1fJiNzKueSTTakCYwXLSO_eINuhPqLaNeGHB83yMwT_sWm-PwulrwDFwI141mvyuhc39jeXi7CaPhycaQ9OLiGOO9peH7nw0buB2po6fNCt59LRIxLglDW7MAWl7enCQz6VVGrKCTizIzadsWR8rtaV5B5JsLQVcmZkWP2KF2_2VjPbxnckFuI4Tepg8FO01oYylfGxyXVT5GAHIIXBXck77PNW8iG-fhx"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-primary/80 text-on-primary font-caption-code text-[10px] font-bold">1</span>
+<span class="absolute bottom-1 right-1 px-1 rounded bg-secondary text-on-secondary text-[9px] font-semibold">표지</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-primary font-semibold truncate">애월 노을 여행 가이드</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant truncate">커버 슬라이드 · 감성 헤드라인</span>
+</div>
+<div class="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="복제"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="옵션"><span class="material-symbols-outlined text-[16px]">more_vert</span></button>
+</div>
+</div>
+<!-- Slide 2 -->
+<div class="group relative flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant text-[18px] cursor-grab group-hover:text-primary">drag_indicator</span>
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Handam coastal trail walking path in Aewol Jeju with cozy modern coffee shops, pastel sky, pristine ocean view, warm sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCh2r50eCwgQ0ALGQC-FLL4URkVlbH7RqV485apIumTfSxWmy5-P7FJ4Xk-AvSFZ-DzCf91FK8P4FIr2kpdCzv3kP1es3EIcI4I1L2XIDQabWSUYUOopu1NgtpYw31ym3Zl-3dN3Ab855Xe7cJNt2PYy7tV_aNRAw4JT_0VDoBdsI2l7viP0-a0XS7lwC_GBQ5Yucc5E-DxNaKWoZ23KPDhpvd4dV79Xlk5AuKuWnu--MPeWuT-oDDA"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-primary/70 text-on-primary font-caption-code text-[10px]">2</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface truncate">첫째 날: 한담해변 카페거리</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant truncate">본문 슬라이드 · 카페 소개</span>
+</div>
+<div class="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="복제"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="text-error hover:text-on-error-container p-0.5" title="삭제"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Slide 3 -->
+<div class="group relative flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant text-[18px] cursor-grab group-hover:text-primary">drag_indicator</span>
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Traditional Jeju black stone walls with green blooming plants and a quiet rustic village walking path, peaceful soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfMKA1Fj6P9Ay9xczxGj8Dj3qUJDIoHGiNgX-ETosIvBV9jmAlfAjT8ZkaQIH53ARvXQg_THoQ1UvO_QqnJzTwBCSNIbxYvrKFXIYDRIUUGsdHk9yv5KEqfQ9yM-TbZGpHhRB2PU6QVD5AgIPHiWpKfvuUX3YCT9fj2imuWzx-3TVupYDC4eEAoiZkDwni72iaCUY7dx_nim_tQa7uT9cxP0ce0B3f53YHC610of6T1gJV8TAJQ6j_"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-primary/70 text-on-primary font-caption-code text-[10px]">3</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface truncate">둘째 날: 고즈넉한 돌담길 산책</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant truncate">본문 슬라이드 · 로컬 감성</span>
+</div>
+<div class="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="복제"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="text-error hover:text-on-error-container p-0.5" title="삭제"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Slide 4 -->
+<div class="group relative flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant text-[18px] cursor-grab group-hover:text-primary">drag_indicator</span>
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Artfully plated fresh Jeju seafood banquet on ceramic table dishes, natural daylight, fresh sashimi and abalone pot, editorial food styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByV2-wN2cGMHAy0yjUqNbVAaPbwxnyv0POruqhHJmxebl7QXQ3m4gvGi4YHzM6pogslCxXmj6aIX8ibDOjaHvV2hlCcvQjIB9LyNy3Ex9hSAj3Jt8SARzo9ZLV6Z2DYYwCEFI0zI_2XiWNK0mPdwQgaRIKq04R0JYs1z75luCcobKGSeJGBUWSlGqWCvC5KCQW9r_-6N8W9KdnaRqlFJz1a9zuDSKy7xtyrKhzTg3Upex1dG3q5qg0"/>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-primary/70 text-on-primary font-caption-code text-[10px]">4</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface truncate">미식 기록: 신선한 해산물 한 상</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant truncate">본문 슬라이드 · 맛집 큐레이션</span>
+</div>
+<div class="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="복제"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="text-error hover:text-on-error-container p-0.5" title="삭제"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Slide 5 (Outro) -->
+<div class="group relative flex items-center gap-space-sm p-space-sm rounded-xl bg-surface-container-lowest hover:bg-surface-container-low transition-all cursor-pointer">
+<span class="material-symbols-outlined text-outline-variant text-[18px] cursor-grab group-hover:text-primary">drag_indicator</span>
+<div class="relative w-16 h-16 rounded-lg overflow-hidden shrink-0 bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-surface text-[26px]">bookmark_border</span>
+<span class="absolute top-1 left-1 px-1.5 py-0.5 rounded bg-primary/70 text-on-primary font-caption-code text-[10px]">5</span>
+<span class="absolute bottom-1 right-1 px-1 rounded bg-surface-container-high text-primary text-[9px] font-semibold">아웃트로</span>
+</div>
+<div class="flex flex-col min-w-0 flex-1">
+<span class="font-label-md text-label-md text-on-surface truncate">저장하고 제주 여행 때 꺼내보세요!</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant truncate">CTA 카드 · 저장/공유 유도</span>
+</div>
+<div class="flex flex-col gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="text-on-surface-variant hover:text-primary p-0.5" title="복제"><span class="material-symbols-outlined text-[16px]">content_copy</span></button>
+<button class="text-error hover:text-on-error-container p-0.5" title="삭제"><span class="material-symbols-outlined text-[16px]">delete</span></button>
+</div>
+</div>
+<!-- Add Slide Button -->
+<button class="flex items-center justify-center gap-2 py-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-label-md text-label-md font-semibold transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>새 슬라이드 추가</span>
+</button>
+</div>
+<!-- Quick Platform Ratio Popover Hint -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-start gap-2">
+<span class="material-symbols-outlined text-[18px] text-secondary shrink-0 mt-0.5">tips_and_updates</span>
+<div class="flex flex-col gap-0.5">
+<span class="font-label-sm text-label-sm text-primary font-semibold">캐러셀 발행 팁</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">표지 슬라이드의 첫인상이 도달률의 70%를 결정합니다. 후킹 문구 AI를 적용해보세요.</p>
+</div>
+</div>
+</aside>
+<!-- CENTER: Visual Stage & Slide Canvas (5.5 Cols) -->
+<section class="col-span-12 xl:col-span-5 lg:col-span-8 flex flex-col items-center gap-space-md">
+<!-- Device Frame Mockup / Instagram Canvas Wrapper -->
+<div class="w-full flex flex-col items-center">
+<!-- Canvas Stage Info Bar -->
+<div class="w-full max-w-[500px] flex items-center justify-between pb-2 text-on-surface-variant font-caption-code text-caption-code px-1">
+<span class="flex items-center gap-1 font-semibold text-primary">
+<span class="material-symbols-outlined text-[16px] text-secondary">crop_original</span> 
+            슬라이드 1 / 5 (표지 템플릿)
+          </span>
+<div class="flex items-center gap-2">
+<button class="hover:text-primary transition-colors flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">zoom_in</span> 100%
+            </button>
+<span>•</span>
+<button class="hover:text-primary transition-colors flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">grid_4x4</span> 가이드라인
+            </button>
+</div>
+</div>
+<!-- The Canvas Frame itself (Responsive Aspect ratio box) -->
+<div class="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden shadow-xl bg-surface-container-lowest flex flex-col transition-all duration-300" id="preview-canvas-box">
+<!-- Background Image with dynamic styling -->
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A cinematic, golden hour sunset over Aewol rocky coast in Jeju Island with gentle ocean waves, warm amber skies, minimalist photography, high resolution" id="main-slide-img" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNlOAi70wU6C-RURhV6etomEJB08tU17PyU_OSYJCkHRlCosyVx7QzfEODw1OnvXBxO1UwZhrMTRZiqx2b5SW5lnl4MJkWWTp5ZloOwbIQ9-RSINq-Pa4Go4eAN7ynLcYysNhQRSgucEzrvq0vh4kPeQz61ojrE0Su9gb9fO6XpCYVw4m-yUYvnhNPY5HJh65BvlEUdWZ28gN7UyuXjKHomxVPyOWcMZQwyqb-Vm6kRorwZ6cq_joc"/>
+<!-- Subtle Editorial Gradient Scrim -->
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/20 to-transparent"></div>
+</div>
+<!-- Top Canvas Badges -->
+<div class="relative z-10 p-5 flex items-center justify-between">
+<div class="px-2.5 py-1 rounded bg-surface/90 backdrop-blur-md text-primary font-caption-code text-[11px] font-bold tracking-wider">
+              JEJU TRAVEL LOG
+            </div>
+<!-- Slide Index Badge -->
+<div class="px-2 py-0.5 rounded-full bg-primary/70 backdrop-blur-md text-on-primary font-caption-code text-caption-code">
+              1 / 5
+            </div>
+</div>
+<!-- Centered Carousel Navigation Overlay Arrows -->
+<button class="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-surface-container-lowest/80 text-primary hover:bg-surface-container-lowest flex items-center justify-center shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_left</span>
+</button>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-surface-container-lowest/80 text-primary hover:bg-surface-container-lowest flex items-center justify-center shadow-md transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">chevron_right</span>
+</button>
+<!-- Bottom Text Container (Editorial Overlay Box) -->
+<div class="relative z-10 mt-auto p-6 flex flex-col gap-2" id="canvas-text-box">
+<div class="inline-flex items-center gap-1.5 text-tertiary-fixed text-[12px] font-bold font-caption-code">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed"></span>
+              2박 3일 추천 코스
+            </div>
+<h2 class="font-headline-lg text-headline-lg text-on-primary font-bold leading-snug drop-shadow-sm" id="live-canvas-title">
+              노을에 물든 제주 애월, 완벽한 2박 3일 힐링 코스
+            </h2>
+<p class="font-body-md text-body-md text-surface-variant font-medium leading-relaxed" id="live-canvas-body">
+              바다와 돌담길, 그리고 따뜻한 커피가 함께한 여유로운 여정
+            </p>
+<!-- Instagram Carousel Pagination Dots Mock -->
+<div class="flex items-center justify-center gap-1.5 pt-3">
+<span class="w-2 h-2 rounded-full bg-on-primary"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary/40"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-on-primary/40"></span>
+</div>
+</div>
+</div>
+</div>
+<!-- Quick AI Rephrase Bar below Canvas -->
+<div class="w-full max-w-[500px] flex items-center justify-between gap-2 p-2 bg-surface-container-lowest rounded-xl shadow-sm">
+<span class="text-caption-code font-caption-code text-on-surface-variant pl-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]">auto_awesome</span>
+          AI 제안
+        </span>
+<div class="flex items-center gap-1.5 overflow-x-auto">
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-caption-code text-caption-code font-semibold transition-colors" id="pill-hooking" type="button">
+            🔥 후킹형: "실패 없는 제주 애월"
+          </button>
+<button class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-primary font-caption-code text-caption-code font-semibold transition-colors" id="pill-sensibility" type="button">
+            🌊 감성형: "노을빛 쉼표 하나"
+          </button>
+</div>
+</div>
+</section>
+<!-- RIGHT: Inspector & Properties Customization Panel (3.5 Cols) -->
+<aside class="col-span-12 xl:col-span-4 lg:col-span-12 flex flex-col gap-space-md">
+<!-- Panel Card: Image Settings -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">image</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">슬라이드 사진 설정</h3>
+</div>
+<span class="font-caption-code text-caption-code text-secondary font-semibold">애월 해안 일몰.jpg</span>
+</div>
+<!-- Thumbnail + Replace trigger -->
+<div class="flex items-center gap-3 p-2 bg-surface-container-low rounded-xl">
+<img class="w-14 h-14 rounded-lg object-cover shadow-sm" data-alt="A cinematic, golden hour sunset over Aewol rocky coast in Jeju Island with gentle ocean waves, warm amber skies, minimalist photography, high resolution" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnhU98fc1QFokQ1Zu0bk3p57luE4iShUMwVVEZBwjFWnuilrzYUW47msge8OA2Yp5_C8hzicrWaQoNnzkP5OzIRYHxi0vjlqxvIqDO88xmG_Z0_wbhk7Evr6HyhBv8fRC1foGf3rg77oUt8NCBUDFbpsnjkGTNemKx9eaHFjiULZu7ziTRkSPQk1cZxmdPqJT73TOT7KLRWyT-mxVXjort0e_ftBRm-q6HwyWE4uAZnZEDtiNEUs44"/>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-primary font-medium truncate">IMG_JEJU_01.jpg</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant">3840 x 2160 · 원본 비율 16:9</span>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold shadow-sm transition-all" type="button">
+            교체하기
+          </button>
+</div>
+<!-- Fit Modes & Unsplash Quick Search -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1 bg-surface-container-low p-1 rounded-lg">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-primary text-label-sm font-semibold shadow-xs" type="button">채우기 (Fill)</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-primary text-label-sm" type="button">맞추기 (Fit)</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-primary text-label-sm" type="button">배경 흐림</button>
+</div>
+<button class="text-secondary hover:text-on-secondary-fixed flex items-center gap-1 text-label-sm font-medium" type="button">
+<span class="material-symbols-outlined text-[16px]">travel_explore</span>
+            Unsplash 검색
+          </button>
+</div>
+</div>
+<!-- Panel Card: Typography & Content Input -->
+<div class="p-space-md rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">edit_note</span>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold">텍스트 콘텐츠 편집</h3>
+</div>
+<button class="flex items-center gap-1 text-secondary text-label-sm font-semibold hover:underline" id="btn-ai-rewrite-all" type="button">
+<span class="material-symbols-outlined text-[16px]">magic_button</span> AI 자동 정제
+          </button>
+</div>
+<!-- Title Input -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-primary font-semibold">슬라이드 제목</label>
+<span class="font-caption-code text-caption-code text-on-surface-variant"><span id="title-char-count">28</span> / 40자</span>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-primary font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-secondary transition-all" id="input-slide-title" maxlength="40" type="text" value="노을에 물든 제주 애월, 완벽한 2박 3일 힐링 코스"/>
+</div>
+<!-- Subtitle/Body Textarea -->
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<label class="font-label-md text-label-md text-primary font-semibold">슬라이드 본문 / 설명</label>
+<span class="font-caption-code text-caption-code text-on-surface-variant"><span id="body-char-count">33</span> / 200자</span>
+</div>
+<textarea class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-low text-primary font-body-md text-body-md focus:bg-surface-container-lowest focus:outline-none focus:ring-1 focus:ring-secondary transition-all resize-none" id="textarea-slide-body" maxlength="200" rows="3">바다와 돌담길, 그리고 따뜻한 커피가 함께한 여유로운 여정</textarea>
+</div>
+<!-- Text Placement & Card Style -->
+<div class="flex flex-col gap-2 pt-2">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">텍스트 레이아웃 배치</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-surface-container-high text-primary font-label-sm font-semibold transition-all" id="pos-bottom" type="button">
+<span class="material-symbols-outlined text-[20px]">vertical_align_bottom</span>
+<span>하단 오버레이</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm transition-all" id="pos-center" type="button">
+<span class="material-symbols-outlined text-[20px]">vertical_align_center</span>
+<span>중앙 카드형</span>
+</button>
+<button class="flex flex-col items-center gap-1 p-2 rounded-xl bg-surface-container-low text-on-surface-variant hover:text-primary font-label-sm transition-all" id="pos-top" type="button">
+<span class="material-symbols-outlined text-[20px]">vertical_align_top</span>
+<span>상단 배치</span>
+</button>
+</div>
+</div>
+<!-- Tone Switcher Pills -->
+<div class="flex flex-col gap-2 pt-1">
+<label class="font-label-sm text-label-sm text-on-surface-variant font-medium">문구 스타일 톤앤매너</label>
+<div class="flex flex-wrap gap-1.5">
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-high text-primary font-medium" type="button">✨ 감성적 힐링</button>
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-medium" type="button">📢 직관적 정보제공</button>
+<button class="px-3 py-1 rounded-full text-label-sm bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-medium" type="button">💬 친근한 대화체</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<!-- Bottom Workspace Notice Bar -->
+<footer class="mt-space-lg mb-space-md p-space-md rounded-2xl bg-surface-container-low flex flex-col md:flex-row items-start md:items-center justify-between gap-space-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-surface text-[22px]">info</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-primary font-semibold">Instagram 캐러셀 퍼블리싱 가이드</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          슬라이드 이미지는 최대 20장까지 연속 구성 가능합니다. 편집기에서 수정한 제목 및 본문 요약은 <strong class="text-primary font-semibold">Instagram 탭 캡션 및 해시태그 목록과 실시간 동기화</strong>됩니다.
+        </p>
+</div>
+</div>
+<div class="flex items-center gap-2 shrink-0">
+<button class="px-4 py-2 rounded-lg bg-surface-container-lowest hover:bg-surface-container-high text-primary font-label-md text-label-md font-semibold transition-all" type="button">
+        인스타그램 규격 검증
+      </button>
+<button class="px-4 py-2 rounded-lg bg-secondary hover:bg-secondary-container text-on-secondary font-label-md text-label-md font-semibold shadow-sm transition-all" type="button">
+        지금 바로 발행 예약
+      </button>
+</div>
+</footer>
+</div>
+<!-- Dynamic Studio Micro-Interactions Script -->
+<script>
+  (function initCarouselStudio() {
+    const inputTitle = document.getElementById('input-slide-title');
+    const textareaBody = document.getElementById('textarea-slide-body');
+    const liveTitle = document.getElementById('live-canvas-title');
+    const liveBody = document.getElementById('live-canvas-body');
+    const titleCount = document.getElementById('title-char-count');
+    const bodyCount = document.getElementById('body-char-count');
+
+    const canvasBox = document.getElementById('preview-canvas-box');
+    const aspectLabel = document.getElementById('current-aspect-label');
+    const btn11 = document.getElementById('btn-ratio-1-1');
+    const btn45 = document.getElementById('btn-ratio-4-5');
+
+    const pillHooking = document.getElementById('pill-hooking');
+    const pillSensibility = document.getElementById('pill-sensibility');
+
+    // Live Title Sync
+    if (inputTitle && liveTitle) {
+      inputTitle.addEventListener('input', (e) => {
+        liveTitle.textContent = e.target.value || '제목을 입력해주세요';
+        if (titleCount) titleCount.textContent = e.target.value.length;
+      });
+    }
+
+    // Live Body Sync
+    if (textareaBody && liveBody) {
+      textareaBody.addEventListener('input', (e) => {
+        liveBody.textContent = e.target.value || '본문 설명을 입력해주세요';
+        if (bodyCount) bodyCount.textContent = e.target.value.length;
+      });
+    }
+
+    // Aspect Ratio Toggles (1:1 vs 4:5)
+    if (btn11 && btn45 && canvasBox && aspectLabel) {
+      btn11.addEventListener('click', () => {
+        canvasBox.classList.remove('aspect-[4/5]', 'max-w-[420px]');
+        canvasBox.classList.add('aspect-square', 'max-w-[500px]');
+        btn11.className = 'px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all';
+        btn45.className = 'px-3 py-1.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all';
+        aspectLabel.textContent = '1:1 피드 정방형';
+      });
+
+      btn45.addEventListener('click', () => {
+        canvasBox.classList.remove('aspect-square', 'max-w-[500px]');
+        canvasBox.classList.add('aspect-[4/5]', 'max-w-[420px]');
+        btn45.className = 'px-3 py-1.5 rounded text-label-sm font-label-sm bg-surface-container-lowest text-primary shadow-sm font-semibold transition-all';
+        btn11.className = 'px-3 py-1.5 rounded text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-all';
+        aspectLabel.textContent = '4:5 세로형 (도달 최적화)';
+      });
+    }
+
+    // AI Pill Recommendations
+    if (pillHooking && inputTitle && liveTitle) {
+      pillHooking.addEventListener('click', () => {
+        const newText = "실패 없는 제주 애월, 후회 없는 3대 핫플 총정리";
+        inputTitle.value = newText;
+        liveTitle.textContent = newText;
+        if (titleCount) titleCount.textContent = newText.length;
+      });
+    }
+
+    if (pillSensibility && inputTitle && liveTitle) {
+      pillSensibility.addEventListener('click', () => {
+        const newText = "노을빛 쉼표 하나, 제주 애월에서의 낭만 기록";
+        inputTitle.value = newText;
+        liveTitle.textContent = newText;
+        if (titleCount) titleCount.textContent = newText.length;
+      });
+    }
+  })();
+</script></main></div></body></html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "on-error-container": "#93000a",
+          "secondary-fixed": "#dbe1ff",
+          "on-secondary-fixed-variant": "#003ea8",
+          "outline-variant": "#c5c6cd",
+          "surface-container-high": "#e2e7ff",
+          "on-primary-fixed": "#111c2d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "primary-fixed-dim": "#bcc7de",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#6ffbbe",
+          "on-error": "#ffffff",
+          "on-surface": "#131b2e",
+          "secondary": "#0051d5",
+          "surface-variant": "#dae2fd",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-surface-variant": "#45474c",
+          "outline": "#75777d",
+          "tertiary-fixed-dim": "#4edea3",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-highest": "#dae2fd",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-dim": "#d2d9f4",
+          "on-secondary-fixed": "#00174b",
+          "tertiary": "#00190e",
+          "surface-container-low": "#f2f3ff",
+          "surface-bright": "#faf8ff",
+          "background": "#faf8ff",
+          "primary": "#091426",
+          "secondary-fixed-dim": "#b4c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "error": "#ba1a1a",
+          "inverse-primary": "#bcc7de",
+          "primary-container": "#1e293b",
+          "inverse-surface": "#283044",
+          "tertiary-container": "#00301e",
+          "on-background": "#131b2e",
+          "secondary-container": "#316bf3",
+          "on-primary-container": "#8590a6",
+          "on-tertiary-container": "#00a472",
+          "on-secondary-container": "#fefcff",
+          "surface-tint": "#545f73",
+          "primary-fixed": "#d8e3fb",
+          "on-primary-fixed-variant": "#3c475a",
+          "on-tertiary-fixed": "#002113"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-sm": "0.5rem",
+          "gutter": "1.5rem",
+          "gutter-mobile": "0.75rem",
+          "space-xl": "2.5rem",
+          "margin-mobile": "1rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem"
+        },
+        "fontFamily": {
+          "display-hero-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "caption-code": ["Inter"],
+          "display-hero": ["Inter"],
+          "headline-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"]
+        },
+        "fontSize": {
+          "display-hero-mobile": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "body-lg": ["1rem", {"lineHeight": "1.625rem", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+          "headline-sm": ["1.125rem", {"lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+          "caption-code": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "display-hero": ["2.25rem", {"lineHeight": "2.75rem", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+          "headline-md": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "body-sm": ["0.8125rem", {"lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-md": ["0.875rem", {"lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "label-md": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "500"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md px-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PostCraft</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-on-surface font-headline-sm" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span>홈</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="my-content" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>내 콘텐츠</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="new-content" href="#"><span class="material-symbols-outlined text-[20px]">add_box</span><span>새 콘텐츠</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>설정</span></a></nav></div><div class="flex flex-col gap-space-md pt-space-md bg-surface-container-lowest"><div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><span>AI 생성 한도</span><span class="font-caption-code text-caption-code text-secondary">12 / 50건</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full" style="width: 24%"></div></div><p class="font-caption-code text-caption-code text-on-surface-variant">오늘 12건 생성 완료</p></div><div class="flex items-center gap-space-sm px-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface truncate">김창작</span><span class="font-caption-code text-caption-code text-on-surface-variant truncate">creator@postcraft.ai</span></div><button class="text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">PostCraft AI</span><span class="text-outline-variant">/</span><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span>소셜 콘텐츠 스튜디오</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="font-label-sm text-label-sm text-on-surface-variant">1초 전 동기화 완료</span></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-sm text-label-sm" type="button"><span class="material-symbols-outlined text-[16px]">photo_library</span><span>Unsplash</span></button><button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">help_outline</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Subtle Top Decorative Glow Ambient Canvas -->
+<div class="relative w-full overflow-hidden rounded-xl mb-space-lg bg-surface-container-lowest shadow-sm p-space-lg">
+<div class="absolute -right-20 -top-20 w-80 h-80 bg-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
+<div class="absolute -left-12 -bottom-16 w-60 h-60 bg-secondary-fixed/30 rounded-full blur-2xl pointer-events-none"></div>
+<div class="relative z-10 flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg">
+<!-- Greeting and Vision -->
+<div class="flex flex-col gap-space-xs max-w-2xl">
+<div class="inline-flex items-center gap-space-xs px-space-sm py-0.5 rounded-full bg-surface-container-high w-fit">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="font-caption-code text-caption-code text-secondary tracking-wide uppercase">AI Multi-Channel Studio</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-on-surface">
+          안녕하세요, 민우님! 👋
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+          사진 몇 장으로 네이버 블로그, 인스타그램 카드뉴스, 페이스북 피드 콘텐츠를 원스톱으로 제작해보세요.
+        </p>
+<!-- Pipeline Workflow Micro Visualizer -->
+<div class="mt-space-sm flex flex-wrap items-center gap-space-xs text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">add_photo_alternate</span>
+            사진 다중 업로드
+          </span>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">arrow_forward</span>
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">auto_awesome</span>
+            AI 사진 심층 분석
+          </span>
+<span class="material-symbols-outlined text-outline-variant text-[14px]">arrow_forward</span>
+<span class="flex items-center gap-1 bg-surface-container-low px-space-sm py-1 rounded">
+<span class="material-symbols-outlined text-[16px] text-secondary">dynamic_feed</span>
+            Story 및 3개 SNS 자동 생성
+          </span>
+</div>
+</div>
+<!-- Hero CTA Section -->
+<div class="flex flex-col sm:flex-row lg:flex-col items-start lg:items-end gap-space-sm shrink-0">
+<button class="group flex items-center justify-center gap-space-sm px-space-lg py-3 rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-sm text-headline-sm shadow-md transition-all duration-150 transform hover:-translate-y-0.5" type="button">
+<span class="material-symbols-outlined text-[22px] text-secondary-fixed group-hover:rotate-90 transition-transform duration-200">add_circle</span>
+<span>새 콘텐츠 만들기</span>
+</button>
+<span class="font-caption-code text-caption-code text-on-surface-variant">
+          드래그 &amp; 드롭으로 빠른 자동 시작 가능
+        </span>
+</div>
+</div>
+</div>
+<!-- Realtime AI Generation Notice Banner -->
+<div class="w-full mb-space-lg rounded-xl bg-surface-container-low shadow-sm p-space-md flex flex-col md:flex-row items-start md:items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-tertiary-container/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-tertiary-container text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="flex flex-col sm:flex-row sm:items-center gap-x-space-sm gap-y-0.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">
+          '제주 애월 2박 3일 힐링 여행' 생성이 완료되었습니다
+        </span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+          (Story, Blog, Instagram, Carousel 전 채널 변환 완료)
+        </span>
+</div>
+</div>
+<div class="flex items-center gap-space-sm self-end md:self-auto shrink-0">
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:text-on-secondary-fixed-variant px-space-sm py-1.5 rounded hover:bg-surface-container transition-colors" href="#">
+<span>결과 확인하기</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<button aria-label="닫기" class="text-outline hover:text-on-surface p-1 rounded hover:bg-surface-container-highest transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">close</span>
+</button>
+</div>
+</div>
+<!-- Core Metric Highlights Grid (Buffer & Studio Benchmarking) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md mb-space-xl">
+<!-- Stat 1: Monthly Output -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">월간 누적 제작</span>
+<span class="p-1 rounded bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[18px]">auto_stories</span>
+</span>
+</div>
+<div class="flex items-baseline gap-space-xs">
+<span class="font-display-hero text-display-hero text-on-surface">18</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">건</span>
+<span class="ml-auto inline-flex items-center text-on-tertiary-container font-caption-code text-caption-code bg-surface-container-high px-1.5 py-0.5 rounded">
+<span class="material-symbols-outlined text-[12px] mr-0.5">trending_up</span>+34% vs 전월
+        </span>
+</div>
+<!-- Mini Sparkline inline visual -->
+<div class="mt-space-sm pt-space-xs flex items-end gap-1.5 h-8 w-full">
+<div class="bg-surface-container-highest flex-1 h-[30%] rounded-t-sm"></div>
+<div class="bg-surface-container-highest flex-1 h-[45%] rounded-t-sm"></div>
+<div class="bg-surface-container-highest flex-1 h-[35%] rounded-t-sm"></div>
+<div class="bg-surface-container-highest flex-1 h-[60%] rounded-t-sm"></div>
+<div class="bg-surface-container-highest flex-1 h-[50%] rounded-t-sm"></div>
+<div class="bg-surface-container-highest flex-1 h-[75%] rounded-t-sm"></div>
+<div class="bg-secondary flex-1 h-[95%] rounded-t-sm"></div>
+</div>
+</div>
+<!-- Stat 2: Quota Tracker -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">오늘 AI 생성 한도</span>
+<span class="p-1 rounded bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[18px]">bolt</span>
+</span>
+</div>
+<div class="flex items-baseline justify-between">
+<div>
+<span class="font-display-hero text-display-hero text-secondary">38</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant"> / 50건</span>
+</div>
+<span class="font-caption-code text-caption-code text-on-surface-variant">76% 여유</span>
+</div>
+<div class="mt-space-sm">
+<div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full transition-all duration-500" style="width: 24%"></div>
+</div>
+<div class="flex justify-between items-center mt-1.5">
+<span class="font-caption-code text-caption-code text-outline">오늘 12건 사용</span>
+<span class="font-caption-code text-caption-code text-secondary font-medium">자정 리셋</span>
+</div>
+</div>
+</div>
+<!-- Stat 3: Primary Distribution Channel -->
+<div class="rounded-xl bg-surface-container-lowest p-space-md shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant mb-space-sm">
+<span class="font-label-sm text-label-sm uppercase tracking-wider">최다 발행 채널</span>
+<span class="p-1 rounded bg-surface-container-low text-secondary">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</span>
+</div>
+<div class="flex items-center justify-between">
+<div>
+<div class="flex items-center gap-space-xs">
+<span class="font-headline-lg text-headline-lg text-on-surface">Instagram</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-caption-code text-caption-code">1위</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">총 18개 중 11개 콘텐츠 연계</p>
+</div>
+<div class="text-right">
+<span class="font-display-hero text-display-hero text-on-surface">62</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">%</span>
+</div>
+</div>
+<!-- Distribution mini segmented bar -->
+<div class="mt-space-sm flex h-2 rounded-full overflow-hidden gap-0.5 bg-surface-container-highest">
+<div class="bg-secondary h-full" style="width: 62%" title="Instagram 62%"></div>
+<div class="bg-secondary-container h-full" style="width: 26%" title="Blog 26%"></div>
+<div class="bg-primary-fixed-dim h-full" style="width: 12%" title="Facebook 12%"></div>
+</div>
+</div>
+</div>
+<!-- Studio Content Section Header with Filter Chips -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-md">
+<div>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption-code text-caption-code mb-1">
+<span>PROJECT REPOSITORY</span>
+<span class="text-outline-variant">•</span>
+<span>총 8개의 작업</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">최근 콘텐츠</h2>
+</div>
+<!-- Filter Tab Bar -->
+<div class="flex items-center gap-space-xs overflow-x-auto pb-1 max-w-full">
+<button class="px-space-md py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md whitespace-nowrap shadow-sm" type="button">
+        전체 (8)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+        여행 ✈️ (3)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+        카페/맛집 ☕ (2)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+        상품 소개 🛍️ (2)
+      </button>
+<button class="px-space-md py-1.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+        일상 🌿 (1)
+      </button>
+</div>
+</div>
+<!-- Recent Projects Card Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-space-md">
+<!-- Project Card 1: Jeju -->
+<div class="group flex flex-col justify-between rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+<div>
+<!-- Card Visual Cover -->
+<div class="relative w-full h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Serene sunset over Aewol coastal beach in Jeju Island, pastel pink and golden orange gradient sky reflecting on calm ocean ripples, minimalist aesthetic, natural lighting, ultra high resolution editorial travel photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPvEfNM5HXO6EzTfSRvTk5z261z9-5aSBIhYLNV_LYiFLivWOTt-TiCAQU8SKb8PydFxzCKA7tZWAvWJmcsRJRPAMHYoxU1YydpOi_DQKPuG5v21u23kjkreesOlvCfcUaW5bfjhTyJXFWcAGbpHZGTNRvP2iXX1OPrHo7DC2xeajHyl2kV3oA1Q4TYGx-YiiYrpJ0E727JDV6Xd7wdCAcsEIuGILKX9kBRolePU_IRwfJGWX8wBQn"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1 bg-primary/80 backdrop-blur-md text-on-primary px-space-xs py-0.5 rounded text-[11px] font-caption-code">
+<span class="material-symbols-outlined text-[14px]">photo_library</span>
+<span>5장 사진</span>
+</div>
+<span class="absolute bottom-space-sm left-space-sm px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm">
+            여행
+          </span>
+</div>
+<!-- Content Detail -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-1">
+            제주 애월 2박 3일 힐링 여행
+          </h3>
+<p class="font-caption-code text-caption-code text-on-surface-variant">
+            2026.10.12 업데이트
+          </p>
+<!-- Generated Formats Pills -->
+<div class="mt-space-xs flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Story</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Blog</span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-caption-code text-caption-code">Carousel (4:5)</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-xs">
+<button class="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>편집하기</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" title="내용 복사" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Project Card 2: Seongsu Bakery -->
+<div class="group flex flex-col justify-between rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+<div>
+<!-- Card Visual Cover -->
+<div class="relative w-full h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Warm cozy artisan bakery in Seongsu Seoul, a flaked golden croissant and ceramic cup of oat latte with delicate foam art on a weathered dark wood table, soft natural daylight streaming through window, moody editorial cafe photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDSYd-p1uAQ02gNQoqcSY79q50bQFTJUhcXV4HRKeSHiYck293RWue1DMQssc_lzZ1KW9yUeYjnVetCZJVHcZAwbtzE6-vYR2hy6haNBx14daANdW4bIZGnOLREheIa-_bQL95oGKhQmLDt6mfEg8T4TLH74kcbIZEoa8cVOfwx-85UmgC5WSZf1xGXxCiUfL80SaXlIwK12_ejsAF9rsKCzr5D-okRRPT07m6denbBCI927A6Mbqf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1 bg-primary/80 backdrop-blur-md text-on-primary px-space-xs py-0.5 rounded text-[11px] font-caption-code">
+<span class="material-symbols-outlined text-[14px]">photo_library</span>
+<span>4장 사진</span>
+</div>
+<span class="absolute bottom-space-sm left-space-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+            카페/맛집
+          </span>
+</div>
+<!-- Content Detail -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-1">
+            성수동 신규 베이커리 카페 방문기
+          </h3>
+<p class="font-caption-code text-caption-code text-on-surface-variant">
+            3일 전 생성
+          </p>
+<!-- Generated Formats Pills -->
+<div class="mt-space-xs flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Blog</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Instagram</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-xs">
+<button class="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>편집하기</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" title="내용 복사" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Project Card 3: Eco Tumbler -->
+<div class="group flex flex-col justify-between rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+<div>
+<!-- Card Visual Cover -->
+<div class="relative w-full h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Minimalist matte sage green reusable tumbler standing on clean limestone pedestal with gentle architectural sunlight cast shadows, modern eco product lifestyle presentation, studio neutral palette, crisp studio commercial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb80EAbuXxjVq_i2Rwzpv1vwjpmDA1xuZ60kqwq-EKvB7YGlpl6WymfTFYud8QT4hKRjwNKSlrfYQtiLxWJRgJFytJJMENHBN4ZHeJkinHBI5OoVM5J9lgoLcfVMouhBou0_0GBv0l4IvPdvKZW0WxagJnkBpjr-RBpYlHtmiF3tSnr33OPG1dOY0w8bDXsV-XQ3kMHbXc8tn4JrpQjPX9TS5gwZytIELBf3x5b7xk1x-DXHAoqkzQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1 bg-primary/80 backdrop-blur-md text-on-primary px-space-xs py-0.5 rounded text-[11px] font-caption-code">
+<span class="material-symbols-outlined text-[14px]">photo_library</span>
+<span>6장 사진</span>
+</div>
+<span class="absolute bottom-space-sm left-space-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+            상품 소개
+          </span>
+</div>
+<!-- Content Detail -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-1">
+            친환경 텀블러 신제품 런칭 리뷰
+          </h3>
+<p class="font-caption-code text-caption-code text-on-surface-variant">
+            1주 전 생성
+          </p>
+<!-- Generated Formats Pills -->
+<div class="mt-space-xs flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Facebook</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant font-caption-code text-caption-code">Blog</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-xs">
+<button class="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>편집하기</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" title="내용 복사" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+<!-- Project Card 4: Bukhansan Trekking -->
+<div class="group flex flex-col justify-between rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+<div>
+<!-- Card Visual Cover -->
+<div class="relative w-full h-48 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Dense lush green pine forest hiking trail in Bukhansan National Park with soft sun rays piercing through tree canopy, peaceful mountain nature scenery, fresh morning atmosphere, clean editorial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQcVkpufMdQJ4KxeGac-__Basod6Y1QEVVEjysLS4idPIwF7fRva7r124QE6fybzlAiV0cQh_yQ73IJLd7132inusAArQ3adXQVSy_hUF88asGvV2HVgfCDP9t4HwwZlLOJroJnrz_VPfzhrnjdogcK1vUsn1y0ODLdVmLvfx1-1eSuYkAXqCQ0iBukhdEUm9eS_32SrGg0eC0lK32rFYiWWUAmm9fCY9nS7LSnroi8V6TDdAa0ZXg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-1 bg-primary/80 backdrop-blur-md text-on-primary px-space-xs py-0.5 rounded text-[11px] font-caption-code">
+<span class="material-symbols-outlined text-[14px]">photo_library</span>
+<span>3장 사진</span>
+</div>
+<span class="absolute bottom-space-sm left-space-sm px-2 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm">
+            일상
+          </span>
+</div>
+<!-- Content Detail -->
+<div class="p-space-md flex flex-col gap-space-xs">
+<h3 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors line-clamp-1">
+            주말 북한산 둘레길 트레킹 기록
+          </h3>
+<p class="font-caption-code text-caption-code text-on-surface-variant">
+            2주 전 생성
+          </p>
+<!-- Generated Formats Pills -->
+<div class="mt-space-xs flex flex-wrap gap-1">
+<span class="px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-caption-code text-caption-code">Instagram Carousel</span>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="px-space-md pb-space-md pt-space-xs flex items-center justify-between gap-space-xs">
+<button class="flex-1 flex items-center justify-center gap-1 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+<span>편집하기</span>
+</button>
+<button class="p-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors" title="내용 복사" type="button">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Quick Tips Banner -->
+<div class="mt-space-xl p-space-md rounded-xl bg-surface-container-low flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+</div>
+<div>
+<p class="font-headline-sm text-headline-sm text-on-surface">인스타그램 캐러셀 팁</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">4:5 비율 이미지는 모바일 피드에서 화면 점유율을 최대 30% 높여 도달률을 극대화합니다.</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-1 font-label-md text-label-md text-secondary hover:underline shrink-0" href="#">
+<span>크리에이터 가이드 읽기</span>
+<span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+</div>
+<script>
+  // Simple filter chip interactivity
+  document.querySelectorAll('button[class*="rounded-full"]').forEach(chip => {
+    chip.addEventListener('click', function() {
+      // Toggle active states among sibling buttons
+      const siblings = this.parentElement.querySelectorAll('button');
+      siblings.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary');
+        btn.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+      });
+      this.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+      this.classList.add('bg-primary', 'text-on-primary');
+    });
+  });
+</script></main></div></body></html>

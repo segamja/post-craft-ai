@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "on-error-container": "#93000a",
+          "secondary-fixed": "#dbe1ff",
+          "on-secondary-fixed-variant": "#003ea8",
+          "outline-variant": "#c5c6cd",
+          "surface-container-high": "#e2e7ff",
+          "on-primary-fixed": "#111c2d",
+          "on-primary": "#ffffff",
+          "on-secondary": "#ffffff",
+          "primary-fixed-dim": "#bcc7de",
+          "on-tertiary": "#ffffff",
+          "tertiary-fixed": "#6ffbbe",
+          "on-error": "#ffffff",
+          "on-surface": "#131b2e",
+          "secondary": "#0051d5",
+          "surface-variant": "#dae2fd",
+          "surface": "#faf8ff",
+          "surface-container": "#eaedff",
+          "on-surface-variant": "#45474c",
+          "outline": "#75777d",
+          "tertiary-fixed-dim": "#4edea3",
+          "surface-container-lowest": "#ffffff",
+          "surface-container-highest": "#dae2fd",
+          "on-tertiary-fixed-variant": "#005236",
+          "surface-dim": "#d2d9f4",
+          "on-secondary-fixed": "#00174b",
+          "tertiary": "#00190e",
+          "surface-container-low": "#f2f3ff",
+          "surface-bright": "#faf8ff",
+          "background": "#faf8ff",
+          "primary": "#091426",
+          "secondary-fixed-dim": "#b4c5ff",
+          "inverse-on-surface": "#eef0ff",
+          "error": "#ba1a1a",
+          "inverse-primary": "#bcc7de",
+          "primary-container": "#1e293b",
+          "inverse-surface": "#283044",
+          "tertiary-container": "#00301e",
+          "on-background": "#131b2e",
+          "secondary-container": "#316bf3",
+          "on-primary-container": "#8590a6",
+          "on-tertiary-container": "#00a472",
+          "on-secondary-container": "#fefcff",
+          "surface-tint": "#545f73",
+          "primary-fixed": "#d8e3fb",
+          "on-primary-fixed-variant": "#3c475a",
+          "on-tertiary-fixed": "#002113"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "margin": "2rem",
+          "space-sm": "0.5rem",
+          "gutter": "1.5rem",
+          "gutter-mobile": "0.75rem",
+          "space-xl": "2.5rem",
+          "margin-mobile": "1rem",
+          "space-xs": "0.25rem",
+          "space-md": "1rem",
+          "space-lg": "1.5rem"
+        },
+        "fontFamily": {
+          "display-hero-mobile": ["Inter"],
+          "label-sm": ["Inter"],
+          "body-lg": ["Inter"],
+          "headline-sm": ["Inter"],
+          "caption-code": ["Inter"],
+          "display-hero": ["Inter"],
+          "headline-md": ["Inter"],
+          "headline-lg": ["Inter"],
+          "body-sm": ["Inter"],
+          "body-md": ["Inter"],
+          "label-md": ["Inter"]
+        },
+        "fontSize": {
+          "display-hero-mobile": ["1.75rem", {"lineHeight": "2.25rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "label-sm": ["0.75rem", {"lineHeight": "1rem", "letterSpacing": "0.02em", "fontWeight": "500"}],
+          "body-lg": ["1rem", {"lineHeight": "1.625rem", "letterSpacing": "-0.005em", "fontWeight": "400"}],
+          "headline-sm": ["1.125rem", {"lineHeight": "1.5rem", "letterSpacing": "-0.01em", "fontWeight": "500"}],
+          "caption-code": ["0.6875rem", {"lineHeight": "0.875rem", "letterSpacing": "0.04em", "fontWeight": "600"}],
+          "display-hero": ["2.25rem", {"lineHeight": "2.75rem", "letterSpacing": "-0.025em", "fontWeight": "600"}],
+          "headline-md": ["1.25rem", {"lineHeight": "1.75rem", "letterSpacing": "-0.015em", "fontWeight": "600"}],
+          "headline-lg": ["1.5rem", {"lineHeight": "2rem", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+          "body-sm": ["0.8125rem", {"lineHeight": "1.25rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "body-md": ["0.875rem", {"lineHeight": "1.5rem", "letterSpacing": "0em", "fontWeight": "400"}],
+          "label-md": ["0.8125rem", {"lineHeight": "1.125rem", "letterSpacing": "0.01em", "fontWeight": "500"}]
+        }
+      }
+    }
+  }</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-64 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-space-md px-space-md"><div class="flex flex-col gap-space-lg"><div class="flex items-center gap-space-sm px-space-xs"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-primary tracking-tight">PostCraft</span></div><nav class="flex flex-col gap-space-xs" data-active-classes="bg-surface-container-high text-on-surface font-headline-sm"><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">home</span><span>홈</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="my-content" href="#"><span class="material-symbols-outlined text-[20px]">folder_open</span><span>내 콘텐츠</span></a><a aria-current="page" class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg transition-colors bg-surface-container-high text-on-surface font-headline-sm" data-path="new-content" href="#"><span class="material-symbols-outlined text-[20px]">add_box</span><span>새 콘텐츠</span></a><a class="flex items-center gap-space-sm px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-colors font-body-md text-body-md" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>설정</span></a></nav></div><div class="flex flex-col gap-space-md pt-space-md bg-surface-container-lowest"><div class="bg-surface-container-low p-space-md rounded-lg flex flex-col gap-space-xs"><div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm"><span>AI 생성 한도</span><span class="font-caption-code text-caption-code text-secondary">12 / 50건</span></div><div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden"><div class="bg-secondary h-full rounded-full" style="width: 24%"></div></div><p class="font-caption-code text-caption-code text-on-surface-variant">오늘 12건 생성 완료</p></div><div class="flex items-center gap-space-sm px-space-xs"><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface truncate">김창작</span><span class="font-caption-code text-caption-code text-on-surface-variant truncate">creator@postcraft.ai</span></div><button class="text-on-surface-variant hover:text-on-surface" type="button"><span class="material-symbols-outlined text-[18px]">more_vert</span></button></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 px-space-lg flex items-center justify-between"><div class="flex items-center gap-space-sm"><img alt="PostCraft AI Wordmark Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X5AcATx9l9eKBPRKSxpozcERsygmkUDHaWGqsYNRXYlpf9qP_8BgfvFDl1hACxd4h654gE7QZYEnl_9GkzORE9mVxOmf5R7maWRO5xEiZ-iB5Uc8hybbLHThPduZzloXiJPe8q8TxmL1Ws9bKkYJo-GR8v-JAqmGeCjmlt6cWVi5aMOZ87T0_NGZvLIuTNHSin_C-Hh0rWN7lpFBhvjMRR_rOkqZIK0LI2whvFQfzCcBlyQs9u-rDhLw"/><span class="font-headline-sm text-headline-sm text-on-surface font-semibold">PostCraft AI</span><span class="text-outline-variant">/</span><div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm"><span class="material-symbols-outlined text-[16px]">edit_note</span><span>소셜 콘텐츠 스튜디오</span></div></div><div class="flex items-center gap-space-md"><div class="flex items-center gap-space-xs px-space-sm py-1 bg-surface-container-low rounded-full"><span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span><span class="font-label-sm text-label-sm text-on-surface-variant">1초 전 동기화 완료</span></div><div class="flex items-center gap-space-xs"><button class="flex items-center gap-1 px-space-sm py-1 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors font-label-sm text-label-sm" type="button"><span class="material-symbols-outlined text-[16px]">photo_library</span><span>Unsplash</span></button><button class="p-1.5 rounded text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[18px]">help_outline</span></button></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="w-full pt-16 bg-surface px-space-lg min-h-screen"><div class="flex flex-col w-full pb-space-xl">
+<!-- Top Workspace Context Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-space-md mb-space-lg">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption-code text-caption-code uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span>Studio Step 01 • Asset &amp; Concept Ingestion</span>
+</div>
+<h1 class="font-display-hero text-display-hero text-primary tracking-tight">새 콘텐츠 만들기</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        사진과 간단한 스토리를 입력하면 AI가 메인 내러티브를 구조화하고, 네이버 블로그·인스타그램·페이스북 규격에 최적화된 맞춤형 콘텐츠를 완성합니다.
+      </p>
+</div>
+<!-- Quick Meta Metrics Pill Tray -->
+<div class="flex items-center gap-space-xs self-start md:self-auto bg-surface-container-low p-1.5 rounded-xl shadow-sm">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[18px]">burst_mode</span>
+<span class="font-label-sm text-label-sm text-on-surface">5 / 10장 선택됨</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 text-on-surface-variant font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container">security</span>
+<span>EXIF 민감정보 자동 제거</span>
+</div>
+</div>
+</header>
+<!-- Main Multi-Column Studio Desk Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-space-lg items-start">
+<!-- Left Broad Canvas: Assets Ingestion (8 cols) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg">
+<!-- Section 1: Photo Assets Stage -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-caption-code text-caption-code">01</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">사진 에셋 업로드 (Visual Storytelling)</h2>
+<p class="font-caption-code text-caption-code text-on-surface-variant">사진의 순서가 내러티브 씬(Scene)의 타임라인이 됩니다. 드래그하여 순서를 조정하세요.</p>
+</div>
+</div>
+<span class="px-space-sm py-1 rounded-full bg-surface-container-low font-caption-code text-caption-code text-secondary font-medium">
+            권장: 3장 이상 · 최대 10장
+          </span>
+</div>
+<!-- Drag-and-drop Hot Zone -->
+<div class="relative group rounded-xl p-space-lg bg-surface-container-low/60 hover:bg-surface-container-low transition-all duration-200 flex flex-col items-center justify-center text-center cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-surface-container-lowest shadow-sm flex items-center justify-center mb-space-sm group-hover:scale-105 transition-transform duration-200">
+<span class="material-symbols-outlined text-secondary text-[24px]">cloud_upload</span>
+</div>
+<p class="font-headline-sm text-headline-sm text-on-surface mb-1">
+            사진을 이곳에 끌어다 놓거나 <span class="text-secondary underline underline-offset-4 decoration-secondary/40">컴퓨터에서 선택</span>
+</p>
+<div class="flex flex-wrap items-center justify-center gap-x-space-sm gap-y-1 text-on-surface-variant font-caption-code text-caption-code">
+<span>지원 규격: JPG, PNG, WebP, HEIC</span>
+<span>•</span>
+<span>파일당 최대 20MB</span>
+<span>•</span>
+<span class="text-on-tertiary-container flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> GPS 메타데이터 프라이버시 보호
+            </span>
+</div>
+</div>
+<!-- Active Uploaded Asset Thumbnails Grid -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span class="flex items-center gap-1.5 font-medium text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">drag_indicator</span>
+              정렬된 미디어 시퀀스 (5장)
+            </span>
+<span>첫 번째 사진이 대표 썸네일(Cover)로 지정됩니다</span>
+</div>
+<!-- Cards Bento Grid -->
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-space-sm" id="photo-grid">
+<!-- Asset 1 (Hero/Cover) -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Golden hour orange and purple coastal sunset over gentle ocean waves in Jeju Island with soft warm gradient lighting aesthetic photo studio quality" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKgIztni4YESI4l89tIdfkFRctjq9Xtign7nGj6_GtkZlXigJgNgVy6FCnewQq6d-QTDMlwdLIY4cROAISq4r7CcXu6MHkEJAdiyC4K4XqwfaiRT2-mBaGDUE7wEOuTSZlO-oyXl9cMJp-szPCWVByVmYt6mH92T1PfiV6kaqT1pbYy141PYhUplC-FkA2NV9zxj_roGEDyqJfset8NH2JkcsogbQ0JWZOQ6D9a4qNf_LF9jJwoZCE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-primary/40 opacity-80"></div>
+<!-- Position & Lead Badge -->
+<div class="absolute top-2 left-2 flex items-center gap-1">
+<span class="px-1.5 py-0.5 rounded bg-primary text-on-primary font-caption-code text-[10px] uppercase font-bold tracking-tight">#1 대표</span>
+</div>
+<button class="absolute top-2 right-2 w-6 h-6 rounded bg-primary/70 text-on-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-caption-code text-[10px] font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    애월 해변 일몰
+                  </span>
+</div>
+</div>
+<div class="p-2 bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-tertiary-container font-caption-code text-[11px] flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 준비완료
+                </span>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="교체" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+</button>
+<button class="p-1 rounded hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="삭제" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asset 2 -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Artisanal cafe table with a ceramic cup of hot cafe latte with delicate milk foam art next to a decadent Basque cheesecake with ocean view through airy glass window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdOAfbpKde6oP7VfNh6yo0aPGU9FjFb3QUsszXGg5osYYTFJvpXWgzwykq4MPqN3t_jlBdgNkJ5Jc6L7E6bTW4x5ppd8uUp1DpeEbVw3_JuHeMiEqNmIP5FuflX96OX5bFkHpPFxl_OiCF2SQFsvF7OgarAQDBhClACd5GDIKrRDJp1dUm-lq5-5pVNl5_An59IbqietywLA-ZAh0c8QUEAx98dYS46qdoabU-CXnPhtpXwAJeJnf1"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-black/20"></div>
+<div class="absolute top-2 left-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-caption-code text-[10px] font-bold">#2</span>
+</div>
+<button class="absolute top-2 right-2 w-6 h-6 rounded bg-primary/70 text-on-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-caption-code text-[10px] font-medium truncate max-w-full">
+                    라떼 &amp; 디저트
+                  </span>
+</div>
+</div>
+<div class="p-2 bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-tertiary-container font-caption-code text-[11px] flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 준비완료
+                </span>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="교체" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+</button>
+<button class="p-1 rounded hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="삭제" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asset 3 -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Traditional Jeju basalt stone wall alleyway bordered by vibrant ripe tangerine citrus trees bathed in clear midday sunlight clean composition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDshfe4AUJH5Dd4fgcsbq6k-zzuzVP9u6nD8ftvmTHkfoz_qpe73qnqLRwQHeTyJxZickOhO8RjBHJJ9n1OHzl2lYgqB3tGxo5G8fcFYcvyZ_-s6Y8ealeYXrga5-qcu9HAu3sC6Ljg7KyiMMtcjYdrlC4a6H2thDSGIoPHzGXqow_BKTbhHA_zonjCQo-Lt4F3gvVX_jdJiqhwgjBSO61wjdMmuOBhLwJ_TdYNFqu4xQa7bmby-cGS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-black/20"></div>
+<div class="absolute top-2 left-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-caption-code text-[10px] font-bold">#3</span>
+</div>
+<button class="absolute top-2 right-2 w-6 h-6 rounded bg-primary/70 text-on-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-caption-code text-[10px] font-medium truncate max-w-full">
+                    돌담길 &amp; 감귤
+                  </span>
+</div>
+</div>
+<div class="p-2 bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-tertiary-container font-caption-code text-[11px] flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 준비완료
+                </span>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="교체" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+</button>
+<button class="p-1 rounded hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="삭제" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asset 4 -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Top-down close-up shot of an elegant seaside brunch dish with poached eggs avocado toast and vibrant edible flowers in natural daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOV-PsD9KHJk97Mpk8z_5ggEwI2xDc4o3eAWWbgpr9KZifLklp1p72np6WGUc3P9I4IJksFEmHwh4osoaVyHLTEfJs4JHOTTtd-f-eDzKFHGUPZ70HzseO6ZeB2bdmFpEOazJEiv4nhE3sW84C_gx0KKW0B4CADsx5q2ZBT3mWMunc1wpWXUT91KkFp8sun6zp_ETvMQVjJINDwsyjelS7fpJl2K3bup0WPWD4AP1xWr_w0SGYgy4f"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-black/20"></div>
+<div class="absolute top-2 left-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-caption-code text-[10px] font-bold">#4</span>
+</div>
+<button class="absolute top-2 right-2 w-6 h-6 rounded bg-primary/70 text-on-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-caption-code text-[10px] font-medium truncate max-w-full">
+                    해변 브런치
+                  </span>
+</div>
+</div>
+<div class="p-2 bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-tertiary-container font-caption-code text-[11px] flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 준비완료
+                </span>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="교체" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+</button>
+<button class="p-1 rounded hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="삭제" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Asset 5 -->
+<div class="group relative flex flex-col rounded-xl overflow-hidden bg-surface-container shadow-sm transition-all duration-200 hover:shadow-md">
+<div class="relative w-full aspect-square bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="Evening outdoor dining table with grilled seafood including fresh abalone and prawns sizzling over charcoal with warm string light ambiance" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4edFWLvji6RjnYk_ka_YDKr4eB90SNdVHkIZvIPmi5XnjtPcV5jLxZmEyMoDN1lgRoGiD8WEawOHQHYaAoF5D0LNW5pFSXBzGQQVx0fSktiv5Ugtz-DkoiEgT7ekk49sho7Cpy3oYUN3NoNc7mEho6IKOrLPtDbEOKRMTz5wlaVcs-PGsPsLkWTMKjXPC_jRvjRsN1Np51jtW33h9Qe9W2lKWhydq8QYBBioexRITqSNPJdatVU7F"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-black/20"></div>
+<div class="absolute top-2 left-2">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur text-on-surface font-caption-code text-[10px] font-bold">#5</span>
+</div>
+<button class="absolute top-2 right-2 w-6 h-6 rounded bg-primary/70 text-on-primary flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity" type="button">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</button>
+<div class="absolute bottom-2 left-2 right-2">
+<span class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-caption-code text-[10px] font-medium truncate max-w-full">
+                    해산물 구이
+                  </span>
+</div>
+</div>
+<div class="p-2 bg-surface-container-lowest flex items-center justify-between">
+<span class="text-on-tertiary-container font-caption-code text-[11px] flex items-center gap-0.5 font-medium">
+<span class="material-symbols-outlined text-[12px]">check_circle</span> 준비완료
+                </span>
+<div class="flex items-center gap-1 opacity-80 group-hover:opacity-100">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="교체" type="button">
+<span class="material-symbols-outlined text-[14px]">sync</span>
+</button>
+<button class="p-1 rounded hover:bg-error-container text-on-surface-variant hover:text-on-error-container" title="삭제" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Slot 6: Add Extra Media Slot -->
+<button class="group aspect-square rounded-xl bg-surface-container-low hover:bg-surface-container flex flex-col items-center justify-center gap-1.5 text-on-surface-variant hover:text-primary transition-colors p-2 text-center shadow-inner" type="button">
+<div class="w-8 h-8 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-secondary text-[20px]">add</span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">사진 추가</span>
+<span class="font-caption-code text-[10px] text-on-surface-variant">5 / 10장</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Story Narrative Description -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-caption-code text-caption-code">03</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">사진에 대해 알려주세요 (Story Context)</h2>
+<p class="font-caption-code text-caption-code text-on-surface-variant">언제, 누구와, 어떤 순간이었는지 편하게 적어주시면 AI가 맥락을 포착하여 글을 다듬습니다.</p>
+</div>
+</div>
+<div class="flex items-center gap-1 text-secondary font-label-sm text-label-sm bg-secondary-fixed/50 px-2.5 py-1 rounded-full">
+<span class="material-symbols-outlined text-[16px]">auto_awesome</span>
+<span>스마트 맥락 추론 활성</span>
+</div>
+</div>
+<div class="relative flex flex-col">
+<textarea class="w-full bg-surface-container-low rounded-xl p-space-md font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/60 focus:bg-surface-container-lowest focus:outline-none focus:shadow-md transition-all resize-none" id="story-context-input" placeholder="예: 2박 3일 동안 다녀온 제주도 초여름 여행 기록입니다. 첫날 애월 해변 카페에서 노을 보며 커피 마시고, 둘째 날은 한적한 돌담길 산책과 해산물 만찬을 즐겼어요. 여유롭고 감성적인 분위기로 작성해주세요." rows="5">2박 3일 동안 다녀온 제주도 초여름 여행 기록입니다. 첫날 애월 해변 카페에서 노을 보며 커피 마시고, 둘째 날은 한적한 돌담길 산책과 해산물 만찬을 즐겼어요. 여유롭고 감성적인 분위기로 작성해주세요.</textarea>
+<div class="flex items-center justify-between pt-space-xs px-1">
+<div class="flex items-center gap-space-xs text-on-surface-variant font-caption-code text-caption-code">
+<span class="material-symbols-outlined text-[14px]">lightbulb</span>
+<span>방문 장소명, 느낀 감정, 날씨 정보를 포함할수록 생생한 콘텐츠가 생성됩니다.</span>
+</div>
+<span class="font-caption-code text-caption-code text-on-surface-variant" id="char-counter">142 / 1,000자</span>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Control Panel: Format, Tone & Pipeline (4 cols) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg">
+<!-- Section 2: Purpose & Tone Parameters -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center gap-space-sm">
+<span class="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-on-primary font-caption-code text-caption-code">02</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">어떤 콘텐츠인가요?</h2>
+<p class="font-caption-code text-caption-code text-on-surface-variant">주제 카테고리와 문체 톤앤매너</p>
+</div>
+</div>
+<!-- Purpose Chip Selector -->
+<div class="flex flex-col gap-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center justify-between">
+<span>콘텐츠 카테고리</span>
+<span class="font-caption-code text-caption-code text-on-surface-variant font-normal">단일 선택</span>
+</label>
+<div class="grid grid-cols-2 gap-space-xs" id="category-pills">
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-primary text-on-primary shadow-sm font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">✈️</span>
+<span class="font-medium">여행</span>
+<span class="material-symbols-outlined ml-auto text-[16px]">check</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">☕</span>
+<span>일상</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">🍽️</span>
+<span>카페 · 맛집</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">🛍️</span>
+<span>상품 소개</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">🍰</span>
+<span>신메뉴</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">🎉</span>
+<span>행사 · 모임</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">📝</span>
+<span>솔직 후기</span>
+</button>
+<button class="category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all" type="button">
+<span class="text-[16px]">✨</span>
+<span>기타 일기</span>
+</button>
+</div>
+</div>
+<!-- Tone Selector -->
+<div class="flex flex-col gap-space-xs pt-space-xs">
+<label class="font-label-md text-label-md text-on-surface font-semibold">글의 어조 (Tone)</label>
+<div class="flex flex-col gap-2">
+<label class="tone-option flex items-start gap-space-sm p-3 rounded-lg bg-surface-container-high/60 cursor-pointer transition-all">
+<input checked="" class="mt-1 text-secondary focus:ring-0" name="tone-select" type="radio" value="polite"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1.5">
+                  해요체
+                  <span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-caption-code text-[10px]">기본 추천</span>
+</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  친근하고 정중하게 대화하듯 공감을 이끌어내는 문체
+                </span>
+</div>
+</label>
+<label class="tone-option flex items-start gap-space-sm p-3 rounded-lg bg-surface-container-low cursor-pointer hover:bg-surface-container transition-all">
+<input class="mt-1 text-secondary focus:ring-0" name="tone-select" type="radio" value="casual"/>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface font-semibold">반말 · 다이어리체</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">
+                  트렌디하고 캐주얼하며 스냅샷 일기 같은 친밀한 톤
+                </span>
+</div>
+</label>
+</div>
+</div>
+<!-- Target Platform Preview Indicator -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-xs">
+<span class="font-label-sm text-label-sm text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-secondary">layers</span>
+            생성 예정 채널 프리뷰
+          </span>
+<div class="flex items-center gap-2 pt-1">
+<span class="px-2 py-1 rounded bg-surface-container-lowest shadow-sm font-caption-code text-caption-code text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#03C75A]"></span> 블로그 포스트
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest shadow-sm font-caption-code text-caption-code text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#E1306C]"></span> 인스타 릴스/피드
+            </span>
+<span class="px-2 py-1 rounded bg-surface-container-lowest shadow-sm font-caption-code text-caption-code text-on-surface flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-[#1877F2]"></span> 페이스북
+            </span>
+</div>
+</div>
+</section>
+<!-- Action Panel & Generation Orchestration -->
+<section class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm">
+<span>워크플로우 파이프라인</span>
+<span class="font-caption-code text-caption-code text-secondary font-semibold">예상 소요 8초</span>
+</div>
+<!-- Mini Pipeline Steps Visualizer -->
+<div class="flex items-center justify-between gap-1 p-2 bg-surface-container-low rounded-lg text-[11px] font-caption-code text-on-surface-variant">
+<div class="flex items-center gap-1 text-on-surface font-semibold">
+<span class="w-4 h-4 rounded-full bg-secondary text-on-secondary flex items-center justify-center text-[9px]">1</span>
+<span>비전 분석</span>
+</div>
+<span class="material-symbols-outlined text-[12px] text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-1">
+<span class="w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[9px]">2</span>
+<span>Story 빌드</span>
+</div>
+<span class="material-symbols-outlined text-[12px] text-outline-variant">chevron_right</span>
+<div class="flex items-center gap-1">
+<span class="w-4 h-4 rounded-full bg-surface-container-highest flex items-center justify-center text-[9px]">3</span>
+<span>채널별 변환</span>
+</div>
+</div>
+</div>
+<!-- Buttons Stack -->
+<div class="flex flex-col gap-space-xs">
+<button class="w-full bg-primary hover:bg-primary-container text-on-primary py-3.5 px-space-md rounded-xl font-headline-sm text-headline-sm font-semibold shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group" id="btn-generate-ai" type="button">
+<span class="material-symbols-outlined text-[20px] text-tertiary-fixed-dim group-hover:rotate-12 transition-transform">auto_awesome</span>
+<span>AI로 콘텐츠 만들기 (5장 준비됨)</span>
+</button>
+<div class="flex items-center justify-between gap-space-xs pt-1">
+<button class="flex-1 py-2.5 px-space-md rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant hover:text-on-surface font-label-md text-label-md font-medium transition-colors flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">save</span>
+<span>임시 저장</span>
+</button>
+<button class="py-2.5 px-3 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="초기화" type="button">
+<span class="material-symbols-outlined text-[18px]">restart_alt</span>
+</button>
+</div>
+</div>
+<p class="font-caption-code text-caption-code text-on-surface-variant text-center">
+          생성 후에도 이미지 순서 변경, 카피 문구 개별 편집 및 재작성이 자유롭습니다.
+        </p>
+</section>
+</div>
+</div>
+</div>
+<script>
+  // Dynamic Character Counter for Context Textarea
+  const textarea = document.getElementById('story-context-input');
+  const counter = document.getElementById('char-counter');
+  
+  if (textarea && counter) {
+    textarea.addEventListener('input', () => {
+      const length = textarea.value.length;
+      counter.textContent = `${length} / 1,000자`;
+      if (length > 1000) {
+        counter.classList.add('text-error');
+      } else {
+        counter.classList.remove('text-error');
+      }
+    });
+  }
+
+  // Interactive Category Buttons Switcher
+  const categoryButtons = document.querySelectorAll('.category-btn');
+  categoryButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryButtons.forEach(b => {
+        b.className = 'category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-surface-container-low text-on-surface hover:bg-surface-container font-label-md text-label-md transition-all';
+        const existingCheck = b.querySelector('.material-symbols-outlined');
+        if (existingCheck) existingCheck.remove();
+      });
+      btn.className = 'category-btn flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-left bg-primary text-on-primary shadow-sm font-label-md text-label-md transition-all';
+      const checkIcon = document.createElement('span');
+      checkIcon.className = 'material-symbols-outlined ml-auto text-[16px]';
+      checkIcon.textContent = 'check';
+      btn.appendChild(checkIcon);
+    });
+  });
+
+  // Radio Highlight Handler for Tones
+  const toneInputs = document.querySelectorAll('input[name="tone-select"]');
+  toneInputs.forEach(input => {
+    input.addEventListener('change', () => {
+      document.querySelectorAll('.tone-option').forEach(el => {
+        el.classList.remove('bg-surface-container-high/60');
+        el.classList.add('bg-surface-container-low');
+      });
+      if (input.checked) {
+        input.closest('.tone-option').classList.remove('bg-surface-container-low');
+        input.closest('.tone-option').classList.add('bg-surface-container-high/60');
+      }
+    });
+  });
+
+  // Action CTA Mock Interaction
+  const generateBtn = document.getElementById('btn-generate-ai');
+  if (generateBtn) {
+    generateBtn.addEventListener('click', () => {
+      const originalText = generateBtn.innerHTML;
+      generateBtn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px] animate-spin">refresh</span>
+        <span>에셋 심층 분석 및 스토리 생성 중...</span>
+      `;
+      generateBtn.classList.add('opacity-90', 'pointer-events-none');
+      setTimeout(() => {
+        generateBtn.innerHTML = originalText;
+        generateBtn.classList.remove('opacity-90', 'pointer-events-none');
+      }, 1500);
+    });
+  }
+</script></main></div></body></html>
