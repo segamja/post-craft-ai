@@ -9,6 +9,8 @@ import { AutoTextarea, CharCount } from '@/features/editor/fields'
 import { ImagePicker } from '@/features/editor/ImagePicker'
 import { useContentDraft } from '@/features/editor/useContentDraft'
 import { useImageUrl } from '@/features/image/api/useImageUrl'
+import { PublishPanel } from '@/features/publish/PublishPanel'
+import { captionText } from '@/features/result/exportFormats'
 import { CopyPanel, UnitActions } from '@/features/result/Inspector'
 import { imageMeta, useResult } from '@/features/result/ResultContext'
 import { newId } from '@/lib/db/time'
@@ -261,6 +263,16 @@ export function CarouselEditor({ carousel, register, onConflict }: { carousel: C
           </button>
         </section>
 
+        <PublishPanel
+          kind="carousel"
+          slides={slides}
+          ratio={ratio}
+          content={() => {
+            // 캐러셀 게시글의 캡션은 Instagram 탭의 캡션 + 해시태그
+            const ig = ctx.platforms.find((p) => p.platform === 'instagram')
+            return { text: captionText(ig?.caption ?? '', ig?.hashtags ?? [], slides.flatMap((s) => (s.imageId ? [s.imageId] : [])), ctx) }
+          }}
+        />
         <UnitActions unit="carousel" entity={carousel} beforeRegenerate={flush} revert={() => revertCarousel(carousel.id)} />
         <CopyPanel
           options={[

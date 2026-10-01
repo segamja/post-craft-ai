@@ -82,6 +82,25 @@ export function blocksToHtml(blocks: ContentBlock[], ctx: ImageLookup): string {
     .join('\n')
 }
 
+/**
+ * 블로그 에디터(네이버·티스토리)에 붙여넣기용 서식 HTML.
+ * 업로드 사진은 로컬 파일이라 붙여넣기로 옮길 수 없으므로 "[사진 n 넣을 자리]" 표시를 남긴다.
+ */
+export function blocksToPasteHtml(blocks: ContentBlock[], ctx: ImageLookup): string {
+  return blocks
+    .flatMap((b) => {
+      if (b.type === 'heading') return [`<h${b.level}>${esc(b.text)}</h${b.level}>`]
+      if (b.type === 'paragraph') return [`<p>${esc(b.text).replace(/\n/g, '<br>')}</p>`]
+      const m = lookup(ctx, b.imageId)
+      if (!m) return []
+      const credit = unsplashCredit(m.image)
+      const marker = `<b>[사진 ${m.index + 1} 넣을 자리 · ${photoFileName(m.index)}]</b>`
+      const caption = b.caption ? `<br>${esc(b.caption)}` : ''
+      return [`<p style="color:#0D5C75">${marker}${caption}${credit ? `<br>${credit.html}` : ''}</p>`]
+    })
+    .join('\n')
+}
+
 export const hashtagLine = (tags: string[]) => tags.map((t) => `#${t}`).join(' ')
 
 /** 캡션 + 해시태그 (+ 사용한 Unsplash 사진 출처) */

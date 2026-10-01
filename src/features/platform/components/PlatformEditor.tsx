@@ -8,7 +8,8 @@ import { AutoTextarea, CharCount, HashtagEditor } from '@/features/editor/fields
 import { ImagePicker } from '@/features/editor/ImagePicker'
 import { useContentDraft } from '@/features/editor/useContentDraft'
 import { useImageUrl } from '@/features/image/api/useImageUrl'
-import { blocksToHtml, blocksToMarkdown, blocksToText, captionText, hashtagLine } from '@/features/result/exportFormats'
+import { PublishPanel, type PublishContent } from '@/features/publish/PublishPanel'
+import { blocksToHtml, blocksToMarkdown, blocksToPasteHtml, blocksToText, captionText, hashtagLine } from '@/features/result/exportFormats'
 import { CopyPanel, UnitActions, VerificationPanel, type CopyOption } from '@/features/result/Inspector'
 import { imageMeta, useResult } from '@/features/result/ResultContext'
 import {
@@ -82,6 +83,24 @@ export function PlatformEditor({ content, register, onConflict }: { content: Pla
   const [picker, setPicker] = useState<'cover' | 'media' | null>(null)
   const rules = PLATFORM_RULES[platform]
   const stale = ctx.story ? isPlatformStale(content, ctx.story) : false
+
+  // SNS에 올릴 사진: Blog=커버+본문 사진, Instagram=Carousel 슬라이드 사진(없으면 전체), Facebook=첨부 사진
+  const readyIds = ctx.images.filter((i) => i.status === 'ready').map((i) => i.id)
+  const slideIds = ctx.carousel?.slides.flatMap((s) => (s.imageId ? [s.imageId] : [])) ?? []
+  const publishImageIds =
+    platform === 'blog'
+      ? [...new Set([draft.coverImageId, ...draft.blocks.map((b) => (b.type === 'image' ? b.imageId : null))].filter((x): x is string => !!x))]
+      : platform === 'instagram'
+        ? [...new Set(slideIds.length ? slideIds : readyIds)]
+        : draft.mediaImageIds
+  const publishContent = (): PublishContent =>
+    platform === 'blog'
+      ? {
+          title: draft.title ?? '',
+          html: [blocksToPasteHtml(draft.blocks, ctx), draft.hashtags.length ? `<p>${hashtagLine(draft.hashtags)}</p>` : ''].join('\n'),
+          text: [blocksToText(draft.blocks, ctx), hashtagLine(draft.hashtags)].filter(Boolean).join('\n\n'),
+        }
+      : { text: captionText(draft.caption ?? '', draft.hashtags, publishImageIds, ctx) }
 
   const copy: CopyOption[] =
     platform === 'blog'
@@ -196,6 +215,7 @@ export function PlatformEditor({ content, register, onConflict }: { content: Pla
       </article>
 
       <aside className="flex flex-col gap-4">
+        <PublishPanel kind={platform} content={publishContent} imageIds={publishImageIds} />
         <UnitActions
           unit={platform}
           entity={content}
